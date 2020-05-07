@@ -1,0 +1,18 @@
+﻿<Window x:Class="CodeGenerator.ConnectionModal.SQLConnectionModal"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CodeGenerator.ConnectionModal"
+        xmlns:pu="clr-namespace:Panuon.UI.Silver;assembly=Panuon.UI.Silver"
+        mc:Ignorable="d"
+        Title="SQLConnectionModal" Height="450" Width="800">
+    <Grid>
+        <TextBox Height="30" Width="200" pu:TextBoxHelper.FocusedBorderBrush="#0F00FF" pu:TextBoxHelper.FocusedShadowColor="#0F00FF" pu:TextBoxHelper.IsClearButtonVisible="True" Margin="291,40,301,349" />
+        <ComboBox  Height="30" Width="200" pu:ComboBoxHelper.HoverBackground="#1EB5B5B5" pu:ComboBoxHelper.SelectedBackground="#32B5B5B5" Margin="291,91,301,298" />
+        <PasswordBox Height="30" Width="200" pu:TextBoxHelper.FocusedBorderBrush="#0F00FF" pu:TextBoxHelper.FocusedShadowColor="#0F00FF" pu:TextBoxHelper.IsClearButtonVisible="True" Margin="291,281,301,108" />
+        <TextBox Height="30" Width="200" pu:TextBoxHelper.FocusedBorderBrush="#0F00FF" pu:TextBoxHelper.FocusedShadowColor="#0F00FF" pu:TextBoxHelper.IsClearButtonVisible="True" Margin="291,163,301,226" />
+        <TextBox Height="30" Width="200" pu:TextBoxHelper.FocusedBorderBrush="#0F00FF" pu:TextBoxHelper.FocusedShadowColor="#0F00FF" pu:TextBoxHelper.IsClearButtonVisible="True" Margin="291,229,301,160" />
+        <ComboBox  Height="30" Width="200" pu:ComboBoxHelper.HoverBackground="#1EB5B5B5" pu:ComboBoxHelper.SelectedBackground="#32B5B5B5" Margin="291,345,301,44" />
+    </Grid>
+</Window>
