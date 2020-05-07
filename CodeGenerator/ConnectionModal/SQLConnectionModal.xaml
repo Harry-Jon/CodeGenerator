@@ -8,11 +8,34 @@
         mc:Ignorable="d"
         Title="SQLConnectionModal" Height="450" Width="800">
     <Grid>
-        <TextBox Height="30" Width="200" pu:TextBoxHelper.FocusedBorderBrush="#0F00FF" pu:TextBoxHelper.FocusedShadowColor="#0F00FF" pu:TextBoxHelper.IsClearButtonVisible="True" Margin="291,40,301,349" />
-        <ComboBox  Height="30" Width="200" pu:ComboBoxHelper.HoverBackground="#1EB5B5B5" pu:ComboBoxHelper.SelectedBackground="#32B5B5B5" Margin="291,91,301,298" />
-        <PasswordBox Height="30" Width="200" pu:TextBoxHelper.FocusedBorderBrush="#0F00FF" pu:TextBoxHelper.FocusedShadowColor="#0F00FF" pu:TextBoxHelper.IsClearButtonVisible="True" Margin="291,281,301,108" />
-        <TextBox Height="30" Width="200" pu:TextBoxHelper.FocusedBorderBrush="#0F00FF" pu:TextBoxHelper.FocusedShadowColor="#0F00FF" pu:TextBoxHelper.IsClearButtonVisible="True" Margin="291,163,301,226" />
-        <TextBox Height="30" Width="200" pu:TextBoxHelper.FocusedBorderBrush="#0F00FF" pu:TextBoxHelper.FocusedShadowColor="#0F00FF" pu:TextBoxHelper.IsClearButtonVisible="True" Margin="291,229,301,160" />
-        <ComboBox  Height="30" Width="200" pu:ComboBoxHelper.HoverBackground="#1EB5B5B5" pu:ComboBoxHelper.SelectedBackground="#32B5B5B5" Margin="291,345,301,44" />
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="0">
+            <Label Height="30" Width="100">服务器名称：</Label>
+            <TextBox Height="30" Width="200" pu:TextBoxHelper.FocusedBorderBrush="#0F00FF" pu:TextBoxHelper.FocusedShadowColor="#0F00FF" pu:TextBoxHelper.IsClearButtonVisible="True" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="1">
+            <Label Height="30" Width="100">身份验证：</Label>
+            <ComboBox  Height="30" Width="200" pu:ComboBoxHelper.HoverBackground="#1EB5B5B5" pu:ComboBoxHelper.SelectedBackground="#32B5B5B5" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="2">
+            <Label Height="30" Width="100">登录名：</Label>
+            <PasswordBox Height="30" Width="200" pu:TextBoxHelper.FocusedBorderBrush="#0F00FF" pu:TextBoxHelper.FocusedShadowColor="#0F00FF" pu:TextBoxHelper.IsClearButtonVisible="True"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="3">
+            <Label Height="30" Width="100">密码：</Label>
+            <TextBox Height="30" Width="200" HorizontalAlignment="Center" pu:TextBoxHelper.FocusedBorderBrush="#0F00FF" pu:TextBoxHelper.FocusedShadowColor="#0F00FF" pu:TextBoxHelper.IsClearButtonVisible="True"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="4">
+            <Label Height="30" Width="100">数据库：</Label>
+            <ComboBox  Height="30" Width="200" pu:ComboBoxHelper.HoverBackground="#1EB5B5B5" pu:ComboBoxHelper.SelectedBackground="#32B5B5B5" />
+        </StackPanel>
     </Grid>
 </Window>
