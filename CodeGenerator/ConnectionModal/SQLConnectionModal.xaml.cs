@@ -22,18 +22,23 @@ namespace CodeGenerator.ConnectionModal
     /// </summary>
     public partial class SQLConnectionModal : Window
     {
+        ViewModel.SQLConnection viewModel;
         public SQLConnectionModal()
         {
             InitializeComponent();
-            txt_server.Text = Environment.MachineName;//计算机名称
+            viewModel = new ViewModel.SQLConnection();
+            gridDetail.DataContext = viewModel;
         }
 
         public string ConnectionString { get; set; }//连接字符串
         //public int VerificationType { get; set; }
 
+        
+
         //连接数据库
         private void Btn_Connection_Click(object sender, RoutedEventArgs e)
         {
+            string Test = viewModel.DataBase;
             string txt_serverVal = txt_server.Text;//服务器名称
             int txt_verification_typeVal = int.Parse(txt_verification_type.SelectedValue.ToString());//身份验证类型   Windows 身份认证  SQL Server 身份认证
             string txt_accountVal = txt_account.Text;//登录名

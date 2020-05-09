@@ -7,7 +7,7 @@
         xmlns:pu="clr-namespace:Panuon.UI.Silver;assembly=Panuon.UI.Silver"
         mc:Ignorable="d"
         Title="SQLConnectionModal" Height="450" Width="800">
-    <Grid>
+    <Grid x:Name="gridDetail">
         <Grid.RowDefinitions>
             <RowDefinition />
             <RowDefinition />
@@ -28,7 +28,7 @@
                 <ComboBoxItem Tag="1">SQL Server 身份认证</ComboBoxItem>
             </ComboBox>
         </StackPanel>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="2" IsEnabled="{ Binding ElementName=txt_verification_type, Path=SelectedValue}">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="2">
             <Label Height="30" Width="100">登录名：</Label>
             <TextBox x:Name="txt_account" Height="30" Width="200" pu:TextBoxHelper.FocusedBorderBrush="#0F00FF" pu:TextBoxHelper.FocusedShadowColor="#0F00FF" pu:TextBoxHelper.IsClearButtonVisible="True"/>
         </StackPanel>
