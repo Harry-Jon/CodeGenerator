@@ -19,23 +19,31 @@
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="0">
             <Label Height="30" Width="100">服务器名称：</Label>
-            <TextBox Height="30" Width="200" pu:TextBoxHelper.FocusedBorderBrush="#0F00FF" pu:TextBoxHelper.FocusedShadowColor="#0F00FF" pu:TextBoxHelper.IsClearButtonVisible="True" />
+            <TextBox Name="txt_server" Height="30" Width="200" pu:TextBoxHelper.FocusedBorderBrush="#0F00FF" pu:TextBoxHelper.FocusedShadowColor="#0F00FF" pu:TextBoxHelper.IsClearButtonVisible="True" />
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="1">
             <Label Height="30" Width="100">身份验证：</Label>
-            <ComboBox  Height="30" Width="200" pu:ComboBoxHelper.HoverBackground="#1EB5B5B5" pu:ComboBoxHelper.SelectedBackground="#32B5B5B5" />
+            <ComboBox Name="txt_verification_type" SelectedValuePath="Tag" Height="30" Width="200" pu:ComboBoxHelper.HoverBackground="#1EB5B5B5" pu:ComboBoxHelper.SelectedBackground="#32B5B5B5">
+                <ComboBoxItem Tag="0" IsSelected="True">Windows 身份认证</ComboBoxItem>
+                <ComboBoxItem Tag="1">SQL Server 身份认证</ComboBoxItem>
+            </ComboBox>
         </StackPanel>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="2">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="2" IsEnabled="{ Binding ElementName=txt_verification_type, Path=SelectedValue}">
             <Label Height="30" Width="100">登录名：</Label>
-            <PasswordBox Height="30" Width="200" pu:TextBoxHelper.FocusedBorderBrush="#0F00FF" pu:TextBoxHelper.FocusedShadowColor="#0F00FF" pu:TextBoxHelper.IsClearButtonVisible="True"/>
+            <TextBox x:Name="txt_account" Height="30" Width="200" pu:TextBoxHelper.FocusedBorderBrush="#0F00FF" pu:TextBoxHelper.FocusedShadowColor="#0F00FF" pu:TextBoxHelper.IsClearButtonVisible="True"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="3">
             <Label Height="30" Width="100">密码：</Label>
-            <TextBox Height="30" Width="200" HorizontalAlignment="Center" pu:TextBoxHelper.FocusedBorderBrush="#0F00FF" pu:TextBoxHelper.FocusedShadowColor="#0F00FF" pu:TextBoxHelper.IsClearButtonVisible="True"/>
+            <PasswordBox x:Name="txt_pwd" Height="30" Width="200" HorizontalAlignment="Center" pu:TextBoxHelper.FocusedBorderBrush="#0F00FF" pu:TextBoxHelper.FocusedShadowColor="#0F00FF" pu:TextBoxHelper.IsClearButtonVisible="True"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="4">
             <Label Height="30" Width="100">数据库：</Label>
-            <ComboBox  Height="30" Width="200" pu:ComboBoxHelper.HoverBackground="#1EB5B5B5" pu:ComboBoxHelper.SelectedBackground="#32B5B5B5" />
+            <ComboBox Name="txt_database" Height="30" Width="200" pu:ComboBoxHelper.HoverBackground="#1EB5B5B5" pu:ComboBoxHelper.SelectedBackground="#32B5B5B5" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="5">
+            <Button x:Name="Btn_Connection" Height="30" Width="150" Content="连接/测试" pu:ButtonHelper.ClickStyle="Sink" FontFamily="{StaticResource FontAwesome}" pu:ButtonHelper.ButtonStyle="Hollow" BorderBrush="#FF3F3F3F" Foreground="#FF3F3F3F" pu:ButtonHelper.HoverBrush="#3F3F3F" Click="Btn_Connection_Click" />
+            <Button x:Name="Btn_Confirm" Height="30" Width="150" Content="确定" pu:ButtonHelper.ClickStyle="Sink" FontFamily="{StaticResource FontAwesome}" pu:ButtonHelper.ButtonStyle="Hollow" BorderBrush="#FF3F3F3F" Foreground="#FF3F3F3F" pu:ButtonHelper.HoverBrush="#3F3F3F" Click="Btn_Confirm_Click" />
+            <Button  Height="30" Width="150" Content="取消" pu:ButtonHelper.ClickStyle="Sink" FontFamily="{StaticResource FontAwesome}" pu:ButtonHelper.ButtonStyle="Hollow" BorderBrush="#FF3F3F3F" Foreground="#FF3F3F3F" pu:ButtonHelper.HoverBrush="#3F3F3F" />
         </StackPanel>
     </Grid>
 </Window>
