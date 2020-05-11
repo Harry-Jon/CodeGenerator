@@ -7,39 +7,59 @@ using System.Threading.Tasks;
 
 namespace CodeGenerator.ViewModel
 {
-    public class SQLConnection: INotifyPropertyChanged
+    public class SQLConnection : INotifyPropertyChanged
     {
+        Model.SQLConnection model;
+        public SQLConnection()
+        {
+            model = new Model.SQLConnection();
+        }
         public string ConnectionString { get; set; }
 
-        private string _dataSource;
-        private int _authenticationType;
-        private string _uid;
-        private string _pwd;
-        private string _dataBase;
         public string DataSource //数据库
         {
-            get => _dataSource;
-            set => NotifyPropertyChanged("DataSource");
+            get { return model.DataSource; }
+            set
+            {
+                model.DataSource = value;
+                NotifyPropertyChanged("DataSource");
+            }
         }
         public int AuthenticationType //认证类型
         {
-            get => _authenticationType;
-            set => NotifyPropertyChanged("AuthenticationType");
+            get { return model.AuthenticationType; }
+            set
+            {
+                model.AuthenticationType = value;
+                NotifyPropertyChanged("AuthenticationType");
+            }
         }
         public string Uid //用户名
         {
-            get => _uid;
-            set => NotifyPropertyChanged("Uid");
+            get { return model.Uid; }
+            set
+            {
+                model.Uid = value;
+                NotifyPropertyChanged("Uid");
+            }
         }
         public string Pwd //用户密码
         {
-            get => _pwd;
-            set => NotifyPropertyChanged("Pwd");
+            get { return model.Pwd; }
+            set
+            {
+                model.Pwd = value;
+                NotifyPropertyChanged("Pwd");
+            }
         }
         public string DataBase //数据库
         {
-            get => _dataBase;
-            set => NotifyPropertyChanged("DataBase");
+            get { return model.DataBase; }
+            set
+            {
+                model.DataBase = value;
+                NotifyPropertyChanged("DataBase");
+            }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

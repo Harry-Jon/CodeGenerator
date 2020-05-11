@@ -15,7 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace CodeGenerator.ConnectionModal
+namespace CodeGenerator.View.ConnectionModal
 {
     /// <summary>
     /// SQLConnectionModal.xaml 的交互逻辑
@@ -26,6 +26,7 @@ namespace CodeGenerator.ConnectionModal
         public SQLConnectionModal()
         {
             InitializeComponent();
+            
             viewModel = new ViewModel.SQLConnection();
             gridDetail.DataContext = viewModel;
         }
@@ -38,7 +39,11 @@ namespace CodeGenerator.ConnectionModal
         //连接数据库
         private void Btn_Connection_Click(object sender, RoutedEventArgs e)
         {
-            string Test = viewModel.DataBase;
+            //viewModel.DataSource = "qweewtreg";
+            //string Test = viewModel.DataBase;
+
+
+
             string txt_serverVal = txt_server.Text;//服务器名称
             int txt_verification_typeVal = int.Parse(txt_verification_type.SelectedValue.ToString());//身份验证类型   Windows 身份认证  SQL Server 身份认证
             string txt_accountVal = txt_account.Text;//登录名
@@ -65,7 +70,7 @@ namespace CodeGenerator.ConnectionModal
                 txt_database.DisplayMemberPath = fieldSelect;
                 txt_database.SelectedIndex = 0;
             }
-            
+
         }
 
 
