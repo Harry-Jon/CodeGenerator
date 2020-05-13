@@ -86,6 +86,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\DataSourceTree.cs" />
     <Compile Include="ViewModel\SQLConnection.cs" />
     <Compile Include="View\ConnectionModal\SQLConnectionModal.xaml.cs">
       <DependentUpon>SQLConnectionModal.xaml</DependentUpon>

@@ -7,6 +7,45 @@
         xmlns:pu="clr-namespace:Panuon.UI.Silver;assembly=Panuon.UI.Silver" x:Class="CodeGenerator.MainWindow"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <XmlDataProvider x:Key="treeViewTemplate" XPath=""></XmlDataProvider>
+        
+        <HierarchicalDataTemplate DataType="DataSource" ItemsSource="{Binding Path=DataSourceTree}">
+            <TextBlock Text="{Binding XPath=@DataSourceName}" />
+        </HierarchicalDataTemplate>
+        <HierarchicalDataTemplate DataType="" ItemsSource="{Binding Path=DataSourceTree}">
+            <TextBlock Text="{Binding Path=DataSourceName}" />
+        </HierarchicalDataTemplate>
+    </Window.Resources>
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <TreeView Name="DataSourceTreeView" VerticalAlignment="Top" Grid.Column="0"  Height="200" Width="NaN" pu:TreeViewHelper.ItemHeight="30" pu:TreeViewHelper.SelectedForeground="#FFB5B5B5">
+            <TreeView.ItemTemplate>
+                <HierarchicalDataTemplate ItemsSource="{Binding Path=Children}">
+                    <TextBlock Text="{Binding Path=Name}" />
+                </HierarchicalDataTemplate>
+            </TreeView.ItemTemplate>
+        </TreeView>
+        
+        
+        <TreeView ItemsSource="{Binding Source={StaticResource treeViewTemplate}}" Grid.Column="0" Height="100" VerticalAlignment="Center">
+        </TreeView>
+
+        <TreeView Grid.Column="0" Height="100" VerticalAlignment="Bottom">
+            <TreeViewItem Header="服务器1">
+                <TreeViewItem Header="数据库1">
+                    <TreeViewItem Header="表1" />
+                </TreeViewItem>
+            </TreeViewItem>
+            <TreeViewItem Header="服务器2">
+                <TreeViewItem Header="数据库2">
+                    <TreeViewItem Header="表2" />
+                </TreeViewItem>
+            </TreeViewItem>
+        </TreeView>
+        <Button Content="连接数据库" Grid.Column="1" Click="Button_Click" />
     </Grid>
 </Window>
