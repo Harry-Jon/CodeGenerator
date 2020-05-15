@@ -1,4 +1,5 @@
-﻿using Common;
+﻿using CodeGenerator.Model;
+using Common;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -78,7 +79,52 @@ namespace CodeGenerator.View.ConnectionModal
         {
             string txt_databaseVal = txt_database.SelectedValue.ToString();//数据库
             ConnectionString += "Initial Catalog:" + txt_databaseVal + ";";
-            DbHelperSQL.ConnectionString = ConnectionString;
+            
+            //string getDataBaseSqlString = "SELECT name FROM  master..sysdatabases WHERE name NOT IN ( 'master', 'model', 'msdb', 'tempdb', 'northwind','pubs' )";
+            //DataSet DS_DataBase = DbHelperSQL.Query(getDataBaseSqlString);
+
+            string getTablesSqlString = "SELECT name FROM " + txt_database.SelectedValue.ToString() + "..sysobjects Where xtype='U' ORDER BY name ";
+            
+            DataSet DS_Tables = DbHelperSQL.Query(getTablesSqlString);
+
+            //string sqlString = "SELECT COLUMN_NAME,DATA_TYPE,CHARACTER_MAXIMUM_LENGTH,IS_NULLABLE,COLUMN_DEFAULT FROM INFORMATION_SCHEMA.columns WHERE TABLE_NAME=\'" + selectedTable + "\'  ";
+
+            //DataTable dataSource = new DataTable();
+            //dataSource.Columns.Add("Name", typeof(string));
+            //dataSource.Columns.Add("ParentId", typeof(int));
+
+            List<DataSourceTree> list = new List<DataSourceTree>();
+            foreach (DataRow dr in DS_Tables.Tables[0].Rows)
+            {
+                DataSourceTree tree = new DataSourceTree();
+                tree.Name = dr["name"].ToString();
+                tree.Children = null;
+                list.Add(tree);
+            }
+            DataSourceTree dataSourceTree = new DataSourceTree();
+            dataSourceTree.Name = txt_server.Text;
+            //dataSourceTree.Children = list;
+            dataSourceTree.Children.Add(new DataSourceTree() { Name = txt_databaseVal, Children=list });
+
+            //string jsonData = JsonHelper.Serialize(dataSourceTree);
+
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.dataSourceTreeList.Add(dataSourceTree);
+            this.Close();
+            mainWindow.Show();
         }
+
+        //public void ChildrenTreeNode(List<string> list, DataSourceTree treeObject)
+        //{
+        //    foreach (string item in list)
+        //    {
+        //        DataSourceTree tree = new DataSourceTree();
+        //        tree.Name = item;
+        //        treeObject.Add(tree);
+        //        ChildrenTreeNode(list, tree);
+
+        //    }
+        //}
+
     }
 }

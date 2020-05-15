@@ -22,7 +22,7 @@
             <ColumnDefinition Width="200" />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <TreeView Name="DataSourceTreeView" VerticalAlignment="Top" Grid.Column="0"  Height="200" Width="NaN" pu:TreeViewHelper.ItemHeight="30" pu:TreeViewHelper.SelectedForeground="#FFB5B5B5">
+        <TreeView Name="dataSourceTreeView" VerticalAlignment="Top" Grid.Column="0"  Height="200" Width="NaN" pu:TreeViewHelper.ItemHeight="30" pu:TreeViewHelper.SelectedForeground="#FFB5B5B5">
             <TreeView.ItemTemplate>
                 <HierarchicalDataTemplate ItemsSource="{Binding Path=Children}">
                     <TextBlock Text="{Binding Path=Name}" />
