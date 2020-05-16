@@ -109,7 +109,7 @@ namespace CodeGenerator.View.ConnectionModal
             //string jsonData = JsonHelper.Serialize(dataSourceTree);
 
             MainWindow mainWindow = new MainWindow();
-            mainWindow.dataSourceTreeList.Add(dataSourceTree);
+            MainWindow.dataSourceTreeList.Add(dataSourceTree);
             this.Close();
             mainWindow.Show();
         }

@@ -27,7 +27,7 @@ namespace CodeGenerator
             InitializeComponent();
             dataSourceTreeView.ItemsSource = dataSourceTreeList;
         }
-        public List<DataSourceTree> dataSourceTreeList = new List<DataSourceTree>();
+        public static List<DataSourceTree> dataSourceTreeList = new List<DataSourceTree>();
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
