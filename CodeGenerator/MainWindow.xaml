@@ -34,17 +34,12 @@
         <TreeView ItemsSource="{Binding Source={StaticResource treeViewTemplate}}" Grid.Column="0" Height="100" VerticalAlignment="Center">
         </TreeView>
 
-        <TreeView Grid.Column="0" Height="100" VerticalAlignment="Bottom">
-            <TreeViewItem Header="服务器1">
-                <TreeViewItem Header="数据库1">
-                    <TreeViewItem Header="表1" />
-                </TreeViewItem>
-            </TreeViewItem>
-            <TreeViewItem Header="服务器2">
-                <TreeViewItem Header="数据库2">
-                    <TreeViewItem Header="表2" />
-                </TreeViewItem>
-            </TreeViewItem>
+        <TreeView x:Name="departmentTree" Grid.Column="0" Height="100" VerticalAlignment="Bottom">
+            <TreeView.ItemTemplate>
+                <HierarchicalDataTemplate ItemsSource="{Binding Path=Nodes}">
+                    <TextBlock Text="{Binding Path=deptName }" />
+                </HierarchicalDataTemplate>
+            </TreeView.ItemTemplate>
         </TreeView>
         <Button Content="连接数据库" Grid.Column="1" Click="Button_Click" />
     </Grid>
