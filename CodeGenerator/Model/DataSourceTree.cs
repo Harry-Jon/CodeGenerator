@@ -20,17 +20,4 @@ namespace CodeGenerator.Model
             this.Children.Add(node);
         }
     }
-
-    public class DepartmentModel
-    {
-        public List<DepartmentModel> Nodes { get; set; }
-        public DepartmentModel()
-        {
-            this.Nodes = new List<DepartmentModel>();
-            this.ParentId = 0;//主节点的父id默认为0
-        }
-        public int id { get; set; }//id
-        public string deptName { get; set; }//部门名称
-        public int ParentId { get; set; }//父类id
-    }
 }

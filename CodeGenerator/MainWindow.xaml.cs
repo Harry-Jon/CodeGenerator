@@ -22,20 +22,42 @@ namespace CodeGenerator
     /// </summary>
     public partial class MainWindow : Window
     {
+        ViewModel.MainWindowViewModel viewModel;
         public MainWindow()
         {
             InitializeComponent();
-            dataSourceTreeView.ItemsSource = dataSourceTreeList;
+            viewModel = new ViewModel.MainWindowViewModel();
+            dataSourceTreeView.DataContext = viewModel;
         }
-        public static List<DataSourceTree> dataSourceTreeList = new List<DataSourceTree>();
+        //public static List<DataSourceTree> dataSourceTreeList = new List<DataSourceTree>();
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             View.ConnectionModal.SQLConnectionModal connectionModal = new View.ConnectionModal.SQLConnectionModal();
+            //View.ConnectionModal.SQLConnectionModal
+            connectionModal.mainModel = viewModel;
             connectionModal.ShowDialog();
 
         }
-        
 
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            List <DataSourceTree> test = new List<DataSourceTree>()
+            {
+                new Model.DataSourceTree{ Name="服务器1", Children=new List<Model.DataSourceTree>()
+                {
+                    new Model.DataSourceTree{ Name="数据库1",Children=new List<Model.DataSourceTree>()
+                    {
+                        new Model.DataSourceTree{ Name="表1",Children=null}
+                    } },
+                    new Model.DataSourceTree{ Name="数据库2",Children=new List<Model.DataSourceTree>()
+                    {
+                        new Model.DataSourceTree(){ Name="表2",Children=null}
+                    } }
+                } },
+
+            };
+            viewModel.dataSourceTreeList = test;
+        }
     }
 }

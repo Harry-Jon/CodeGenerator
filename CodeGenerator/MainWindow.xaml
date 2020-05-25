@@ -7,40 +7,19 @@
         xmlns:pu="clr-namespace:Panuon.UI.Silver;assembly=Panuon.UI.Silver" x:Class="CodeGenerator.MainWindow"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Window.Resources>
-        <XmlDataProvider x:Key="treeViewTemplate" XPath=""></XmlDataProvider>
-        
-        <HierarchicalDataTemplate DataType="DataSource" ItemsSource="{Binding Path=DataSourceTree}">
-            <TextBlock Text="{Binding XPath=@DataSourceName}" />
-        </HierarchicalDataTemplate>
-        <HierarchicalDataTemplate DataType="" ItemsSource="{Binding Path=DataSourceTree}">
-            <TextBlock Text="{Binding Path=DataSourceName}" />
-        </HierarchicalDataTemplate>
-    </Window.Resources>
-    <Grid>
+    <Grid x:Name="mainWindowData">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200" />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <TreeView Name="dataSourceTreeView" VerticalAlignment="Top" Grid.Column="0"  Height="200" Width="NaN" pu:TreeViewHelper.ItemHeight="30" pu:TreeViewHelper.SelectedForeground="#FFB5B5B5">
+        <TreeView Name="dataSourceTreeView" ItemsSource="{Binding Path=dataSourceTreeList}"  VerticalAlignment="Top" Grid.Column="0"  Height="200" Width="NaN" pu:TreeViewHelper.ItemHeight="30" pu:TreeViewHelper.SelectedForeground="#FFB5B5B5">
             <TreeView.ItemTemplate>
                 <HierarchicalDataTemplate ItemsSource="{Binding Path=Children}">
                     <TextBlock Text="{Binding Path=Name}" />
                 </HierarchicalDataTemplate>
             </TreeView.ItemTemplate>
         </TreeView>
-        
-        
-        <TreeView ItemsSource="{Binding Source={StaticResource treeViewTemplate}}" Grid.Column="0" Height="100" VerticalAlignment="Center">
-        </TreeView>
-
-        <TreeView x:Name="departmentTree" Grid.Column="0" Height="100" VerticalAlignment="Bottom">
-            <TreeView.ItemTemplate>
-                <HierarchicalDataTemplate ItemsSource="{Binding Path=Nodes}">
-                    <TextBlock Text="{Binding Path=deptName }" />
-                </HierarchicalDataTemplate>
-            </TreeView.ItemTemplate>
-        </TreeView>
+        <Button Content="测试" Grid.Column="0" Height="200" VerticalAlignment="Bottom" Click="Button_Click_1" />
         <Button Content="连接数据库" Grid.Column="1" Click="Button_Click" />
     </Grid>
 </Window>

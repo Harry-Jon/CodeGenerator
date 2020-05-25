@@ -24,18 +24,26 @@ namespace CodeGenerator.View.ConnectionModal
     public partial class SQLConnectionModal : Window
     {
         ViewModel.SQLConnection viewModel;
+        
         public SQLConnectionModal()
         {
             InitializeComponent();
             
             viewModel = new ViewModel.SQLConnection();
+
             gridDetail.DataContext = viewModel;
+
+            //dataSourceTreeList = new List<DataSourceTree>();
         }
+        public ViewModel.MainWindowViewModel mainModel { get; set; }
+
 
         public string ConnectionString { get; set; }//连接字符串
         //public int VerificationType { get; set; }
 
-        
+        public static List<DataSourceTree> dataSourceTreeList = new List<DataSourceTree>();
+
+
 
         //连接数据库
         private void Btn_Connection_Click(object sender, RoutedEventArgs e)
@@ -108,10 +116,9 @@ namespace CodeGenerator.View.ConnectionModal
 
             //string jsonData = JsonHelper.Serialize(dataSourceTree);
 
-            MainWindow mainWindow = new MainWindow();
-            MainWindow.dataSourceTreeList.Add(dataSourceTree);
+            dataSourceTreeList.Add(dataSourceTree);
+            mainModel.dataSourceTreeList = dataSourceTreeList;
             this.Close();
-            mainWindow.Show();
         }
 
         //public void ChildrenTreeNode(List<string> list, DataSourceTree treeObject)
