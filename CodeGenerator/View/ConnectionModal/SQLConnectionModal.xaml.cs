@@ -47,18 +47,14 @@ namespace CodeGenerator.View.ConnectionModal
         //连接数据库
         private void Btn_Connection_Click(object sender, RoutedEventArgs e)
         {
-
-            string txt_serverVal = txt_server.Text;//服务器名称
             int txt_verification_typeVal = int.Parse(txt_verification_type.SelectedValue.ToString());//身份验证类型   Windows 身份认证  SQL Server 身份认证
-            string txt_accountVal = txt_account.Text;//登录名
-            string txt_pwdVal = txt_pwd.Password;//登录密码
             if (txt_verification_typeVal == 0)
             {
-                ConnectionString = string.Format("Data Source={0};Integrated Security=SSPI;", txt_serverVal);
+                ConnectionString = string.Format("Data Source={0};Integrated Security=SSPI;", viewModel.DataSource);
             }
             else
             {
-                ConnectionString = string.Format("Data Source={0};uid={1};pwd={2};", txt_serverVal, txt_accountVal, txt_pwdVal);
+                ConnectionString = string.Format("Data Source={0};uid={1};pwd={2};", viewModel.DataSource, viewModel.Uid, viewModel.Pwd);
             }
 
             DbHelperSQL.ConnectionString = ConnectionString;

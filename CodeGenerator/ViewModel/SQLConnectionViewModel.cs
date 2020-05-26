@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CodeGenerator.ViewModel
 {
-    public class SQLConnectionViewModel : INotifyPropertyChanged
+    public class SQLConnectionViewModel : ViewModelBase
     {
         Model.SQLConnectionString model;
         public SQLConnectionViewModel()
@@ -22,7 +22,7 @@ namespace CodeGenerator.ViewModel
             set
             {
                 model.DataSource = value;
-                NotifyPropertyChanged("DataSource");
+                RaisePropertyChanged("DataSource");
             }
         }
         public int AuthenticationType //认证类型
@@ -31,7 +31,7 @@ namespace CodeGenerator.ViewModel
             set
             {
                 model.AuthenticationType = value;
-                NotifyPropertyChanged("AuthenticationType");
+                RaisePropertyChanged("AuthenticationType");
             }
         }
         public string Uid //用户名
@@ -40,7 +40,7 @@ namespace CodeGenerator.ViewModel
             set
             {
                 model.Uid = value;
-                NotifyPropertyChanged("Uid");
+                RaisePropertyChanged("Uid");
             }
         }
         public string Pwd //用户密码
@@ -49,7 +49,7 @@ namespace CodeGenerator.ViewModel
             set
             {
                 model.Pwd = value;
-                NotifyPropertyChanged("Pwd");
+                RaisePropertyChanged("Pwd");
             }
         }
         public string DataBase //数据库
@@ -58,17 +58,9 @@ namespace CodeGenerator.ViewModel
             set
             {
                 model.DataBase = value;
-                NotifyPropertyChanged("DataBase");
+                RaisePropertyChanged("DataBase");
             }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void NotifyPropertyChanged(string propertyName)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
-        }
     }
 }

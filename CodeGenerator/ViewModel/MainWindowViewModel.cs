@@ -8,37 +8,29 @@ using System.Threading.Tasks;
 
 namespace CodeGenerator.ViewModel
 {
-    public class MainWindowViewModel: INotifyPropertyChanged
+    public class MainWindowViewModel : ViewModelBase
     {
-        public MainWindowViewModel() 
+        public MainWindowViewModel()
         {
         }
 
 
         public List<DataSourceTree> _dataSourceTreeList;
-        public List<DataSourceTree> DataSourceTreeList 
+        public List<DataSourceTree> DataSourceTreeList
         {
-            get 
+            get
             {
                 return _dataSourceTreeList;
             }
-            set 
+            set
             {
                 _dataSourceTreeList = value;
-                NotifyPropertyChanged("DataSourceTreeList");
+                RaisePropertyChanged("DataSourceTreeList");
             }
         }
 
-            
 
 
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void NotifyPropertyChanged(string propertyName)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
-        }
+
     }
 }
