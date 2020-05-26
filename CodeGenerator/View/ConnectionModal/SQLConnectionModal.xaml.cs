@@ -23,19 +23,18 @@ namespace CodeGenerator.View.ConnectionModal
     /// </summary>
     public partial class SQLConnectionModal : Window
     {
-        ViewModel.SQLConnection viewModel;
+        ViewModel.SQLConnectionViewModel viewModel;
         
         public SQLConnectionModal()
         {
             InitializeComponent();
             
-            viewModel = new ViewModel.SQLConnection();
+            viewModel = new ViewModel.SQLConnectionViewModel();
 
             gridDetail.DataContext = viewModel;
 
-            //dataSourceTreeList = new List<DataSourceTree>();
         }
-        public ViewModel.MainWindowViewModel mainModel { get; set; }
+        public ViewModel.MainWindowViewModel mainWindowModel { get; set; } 
 
 
         public string ConnectionString { get; set; }//连接字符串
@@ -48,10 +47,6 @@ namespace CodeGenerator.View.ConnectionModal
         //连接数据库
         private void Btn_Connection_Click(object sender, RoutedEventArgs e)
         {
-            //viewModel.DataSource = "qweewtreg";
-            //string Test = viewModel.DataBase;
-
-
 
             string txt_serverVal = txt_server.Text;//服务器名称
             int txt_verification_typeVal = int.Parse(txt_verification_type.SelectedValue.ToString());//身份验证类型   Windows 身份认证  SQL Server 身份认证
@@ -117,21 +112,11 @@ namespace CodeGenerator.View.ConnectionModal
             //string jsonData = JsonHelper.Serialize(dataSourceTree);
 
             dataSourceTreeList.Add(dataSourceTree);
-            mainModel.dataSourceTreeList = dataSourceTreeList;
+            mainWindowModel.DataSourceTreeList = null;
+            mainWindowModel.DataSourceTreeList = dataSourceTreeList;
             this.Close();
         }
 
-        //public void ChildrenTreeNode(List<string> list, DataSourceTree treeObject)
-        //{
-        //    foreach (string item in list)
-        //    {
-        //        DataSourceTree tree = new DataSourceTree();
-        //        tree.Name = item;
-        //        treeObject.Add(tree);
-        //        ChildrenTreeNode(list, tree);
-
-        //    }
-        //}
 
     }
 }

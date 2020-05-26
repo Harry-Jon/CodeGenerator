@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CodeGenerator.Model
 {
-    public class SQLConnection
+    public class SQLConnectionString
     {
         public string ConnectionString { get; set; }
 

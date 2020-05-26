@@ -88,7 +88,7 @@
     </ApplicationDefinition>
     <Compile Include="Model\DataSourceTree.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
-    <Compile Include="ViewModel\SQLConnection.cs" />
+    <Compile Include="ViewModel\SQLConnectionViewModel.cs" />
     <Compile Include="View\ConnectionModal\SQLConnectionModal.xaml.cs">
       <DependentUpon>SQLConnectionModal.xaml</DependentUpon>
     </Compile>
@@ -110,7 +110,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\SQLConnection.cs" />
+    <Compile Include="Model\SQLConnectionString.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

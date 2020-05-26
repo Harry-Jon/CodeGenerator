@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace CodeGenerator.ViewModel
 {
-    public class SQLConnection : INotifyPropertyChanged
+    public class SQLConnectionViewModel : INotifyPropertyChanged
     {
-        Model.SQLConnection model;
-        public SQLConnection()
+        Model.SQLConnectionString model;
+        public SQLConnectionViewModel()
         {
-            model = new Model.SQLConnection();
+            model = new Model.SQLConnectionString();
         }
         public string ConnectionString { get; set; }
 

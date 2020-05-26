@@ -16,7 +16,7 @@ namespace CodeGenerator.ViewModel
 
 
         public List<DataSourceTree> _dataSourceTreeList;
-        public List<DataSourceTree> dataSourceTreeList 
+        public List<DataSourceTree> DataSourceTreeList 
         {
             get 
             {
@@ -25,7 +25,7 @@ namespace CodeGenerator.ViewModel
             set 
             {
                 _dataSourceTreeList = value;
-                NotifyPropertyChanged("dataSourceTreeList");
+                NotifyPropertyChanged("DataSourceTreeList");
             }
         }
 

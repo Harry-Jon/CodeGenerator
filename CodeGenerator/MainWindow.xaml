@@ -12,14 +12,13 @@
             <ColumnDefinition Width="200" />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <TreeView Name="dataSourceTreeView" ItemsSource="{Binding Path=dataSourceTreeList}"  VerticalAlignment="Top" Grid.Column="0"  Height="200" Width="NaN" pu:TreeViewHelper.ItemHeight="30" pu:TreeViewHelper.SelectedForeground="#FFB5B5B5">
+        <TreeView Name="dataSourceTreeView" ItemsSource="{Binding Path=DataSourceTreeList}"  VerticalAlignment="Top" Grid.Column="0"  Height="200" Width="NaN" pu:TreeViewHelper.ItemHeight="30" pu:TreeViewHelper.SelectedForeground="#FFB5B5B5">
             <TreeView.ItemTemplate>
                 <HierarchicalDataTemplate ItemsSource="{Binding Path=Children}">
                     <TextBlock Text="{Binding Path=Name}" />
                 </HierarchicalDataTemplate>
             </TreeView.ItemTemplate>
         </TreeView>
-        <Button Content="测试" Grid.Column="0" Height="200" VerticalAlignment="Bottom" Click="Button_Click_1" />
         <Button Content="连接数据库" Grid.Column="1" Click="Button_Click" />
     </Grid>
 </Window>
