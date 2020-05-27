@@ -27,7 +27,7 @@ namespace CodeGenerator
         {
             InitializeComponent();
             viewModel = new ViewModel.MainWindowViewModel();
-            dataSourceTreeView.DataContext = viewModel;
+            ServerTreeView.DataContext = viewModel;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
