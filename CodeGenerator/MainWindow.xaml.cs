@@ -32,7 +32,7 @@ namespace CodeGenerator
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            View.ConnectionModal.SQLConnectionModal connectionModal = new View.ConnectionModal.SQLConnectionModal();
+            View.SQLConnectionModal connectionModal = new View.SQLConnectionModal();
             connectionModal.mainWindowModel = viewModel;
             connectionModal.ShowDialog();
 
